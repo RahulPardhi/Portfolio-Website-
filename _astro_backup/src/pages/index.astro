@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '@/layouts/Layout.astro'
+import '../styles/globals.css'
+
+import PythonLogo from '@/assets/logos/python.svg'
+import JSLogo from '@/assets/logos/javascript.svg'
+import HTMLLogo from '@/assets/logos/html.svg'
+import CSSLogo from '@/assets/logos/css.svg'
+import ReactLogo from '@/assets/logos/react.svg'
+import NodeLogo from '@/assets/logos/node-js.svg'
+import MongoLogo from '@/assets/logos/mongodb.svg'
+---
+
+<Layout>
+    <div
+        class='space-y-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-secondary-background p-6 shadow my-6'
+    >
+        {/* Intro */}
+        <div class='space-y-3'>
+            <h1 class='flex items-center gap-2 text-2xl font-bold'>Hey 👋</h1>
+            <p class='leading-relaxed'>
+                I'm <span class='font-semibold'>Rahul Pardhi</span>, a
+                Computer Science &amp; Engineering student and Web Developer living in{' '}
+                <span class='font-medium'>Gondia, Maharashtra</span>.
+            </p>
+            <p class='leading-relaxed'>
+                I enjoy building useful and user-friendly web applications and working with AI technologies. My main technical skills include:
+            </p>
+            <ul class='mt-3 space-y-2'>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={PythonLogo}
+                        alt='Python'
+                        loading='eager'
+                    />
+                    <strong>Python</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={JSLogo}
+                        alt='JavaScript'
+                        loading='eager'
+                    />
+                    <strong>JavaScript</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={HTMLLogo}
+                        alt='HTML'
+                        loading='eager'
+                    />
+                    <strong>HTML</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={CSSLogo}
+                        alt='CSS'
+                        loading='eager'
+                    />
+                    <strong>CSS</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={ReactLogo}
+                        alt='React'
+                        loading='eager'
+                    />
+                    <strong>React</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={NodeLogo}
+                        alt='Node.js'
+                        loading='eager'
+                    />
+                    <strong>Node.js &amp; Express</strong>
+                </li>
+                <li class='flex items-center gap-2'>
+                    <Image
+                        class='w-5'
+                        src={MongoLogo}
+                        alt='MongoDB'
+                        loading='eager'
+                    />
+                    <strong>MongoDB &amp; SQL</strong>
+                </li>
+            </ul>
+        </div>
+
+        {/* Areas of Interest */}
+        <div class='space-y-3'>
+            <p class='leading-relaxed'>
+                I have developed two major projects:{' '}
+                <span class='font-bold'>Kishan Mitra AI</span> (a smart farming assistant with features like crop disease detection, real-time weather forecasting, soil analysis, AI-based farming guidance, voice recognition, and multilingual support) and{' '}
+                <span class='font-bold'>Career Path</span> (an ATS-based resume evaluator that analyzes resumes, checks skill matching, and provides feedback, tested on 50+ resumes with 80% accuracy).
+            </p>
+        </div>
+
+        {/* Motivation */}
+        <div class='space-y-3'>
+            <p class='leading-relaxed'>
+                I have good problem-solving skills and am always open to learning new technologies, exploring new skills, improving my knowledge, and taking on new challenges.
+            </p>
+        </div>
+
+        {/* Conclusion & Contact CTA */}
+        <div class='space-y-4 pt-2 border-t border-border/40'>
+            <p class='leading-relaxed'>
+                Explore my projects, technical skills, and experience. I’m always ready to learn new technologies and take on new opportunities, challenges, and collaborations.
+            </p>
+            <div class='flex flex-wrap gap-3 pt-1'>
+                <a
+                    href='/contact'
+                    class='inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors'
+                >
+                    <span>Send a Message</span>
+                    <span>→</span>
+                </a>
+                <a
+                    href='/projects'
+                    class='inline-flex items-center gap-2 rounded-lg border border-border/60 bg-background px-4 py-2 text-sm font-semibold text-foreground hover:bg-secondary transition-colors'
+                >
+                    <span>View Projects</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>

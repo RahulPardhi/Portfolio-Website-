@@ -1,0 +1,187 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Card, CardContent } from '@/components/ui/card'
+import Award from '@lucide/astro/icons/award'
+
+import pythonLogo from '@/assets/logos/python.svg'
+import javascriptLogo from '@/assets/logos/javascript.svg'
+import htmlLogo from '@/assets/logos/html.svg'
+import cssLogo from '@/assets/logos/css.svg'
+import reactLogo from '@/assets/logos/react.svg'
+import reactDarkLogo from '@/assets/logos/react-dark.svg'
+import nodeLogo from '@/assets/logos/node-js.svg'
+import mongoLogo from '@/assets/logos/mongodb.svg'
+import sqlLogo from '@/assets/logos/sql.svg'
+
+import gitLogo from '@/assets/logos/git.svg'
+import githubLogo from '@/assets/logos/github.svg'
+import githubDarkLogo from '@/assets/logos/github-dark.svg'
+import postmanLogo from '@/assets/logos/postman.svg'
+import vscodeLogo from '@/assets/logos/vs-code.svg'
+
+const coreTechnologies = [
+    { name: 'Python', logo: pythonLogo },
+    { name: 'JavaScript', logo: javascriptLogo },
+    { name: 'HTML', logo: htmlLogo },
+    { name: 'CSS', logo: cssLogo },
+    { name: 'React', logo: reactLogo, dark: reactDarkLogo },
+    { name: 'Node.js', logo: nodeLogo },
+    { name: 'MongoDB', logo: mongoLogo },
+    { name: 'SQL & DBMS', logo: sqlLogo },
+]
+
+const developmentTools = [
+    { name: 'Git', logo: gitLogo },
+    { name: 'GitHub', logo: githubLogo, dark: githubDarkLogo },
+    { name: 'VS Code', logo: vscodeLogo },
+    { name: 'Postman', logo: postmanLogo },
+]
+
+const certifications = [
+    {
+        title: 'AI Tools & ChatGPT Workshop',
+        issuer: 'be10x',
+        date: 'February 2026',
+    },
+    {
+        title: 'Artificial Intelligence Fundamentals',
+        issuer: 'IBM Skills Build',
+        date: 'December 2025',
+    },
+]
+---
+
+<Layout
+    title='Skills'
+    description='A showcase of Rahul Pardhi’s technical skills, programming languages, development tools, and certifications.'
+>
+    <section class='py-8 px-4 lg:px-0 space-y-8 overflow-auto max-w-3xl mx-auto w-full'>
+        <!-- Core Technologies & Languages -->
+        <div>
+            <h2 class='text-2xl font-bold mb-2 text-foreground'>Languages &amp; Core Technologies</h2>
+            <div class='h-1 w-48 bg-primary mb-6 rounded-full'></div>
+
+            <div class='flex gap-4 overflow-x-auto pb-2 snap-x flex-wrap'>
+                {
+                    coreTechnologies.map((skill) => (
+                        <Card className='flex items-center justify-center gap-3 py-2.5 px-4 bg-secondary-background border border-slate-200 dark:border-slate-800 transition hover:shadow-md hover:border-primary/40'>
+                            <CardContent className='flex items-center justify-center gap-3 p-0'>
+                                <img
+                                    src={skill.logo.src}
+                                    alt={skill.name}
+                                    class:list={[
+                                        'h-8 w-8 object-contain',
+                                        { 'dark:hidden': skill.dark },
+                                    ]}
+                                />
+                                {
+                                    skill.dark && (
+                                        <img
+                                            src={skill.dark.src}
+                                            alt={skill.name}
+                                            class='hidden h-8 w-8 object-contain dark:block'
+                                        />
+                                    )
+                                }
+                                <span class='text-md font-medium text-foreground'>
+                                    {skill.name}
+                                </span>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div>
+            <h2 class='text-2xl font-bold mb-2 text-foreground'>Development Tools</h2>
+            <div class='h-1 w-36 bg-chart-4 mb-6 rounded-full'></div>
+
+            <div class='flex gap-4 overflow-x-auto pb-2 snap-x flex-wrap'>
+                {
+                    developmentTools.map((skill) => (
+                        <Card className='flex items-center justify-center gap-3 py-2.5 px-4 bg-secondary-background border border-slate-200 dark:border-slate-800 transition hover:shadow-md hover:border-primary/40'>
+                            <CardContent className='flex items-center justify-center gap-3 p-0'>
+                                <img
+                                    src={skill.logo.src}
+                                    alt={skill.name}
+                                    class:list={[
+                                        'h-8 w-8 object-contain',
+                                        { 'dark:hidden': skill.dark },
+                                    ]}
+                                />
+                                {
+                                    skill.dark && (
+                                        <img
+                                            src={skill.dark.src}
+                                            alt={skill.name}
+                                            class='hidden h-8 w-8 object-contain dark:block'
+                                        />
+                                    )
+                                }
+                                <span class='text-md font-medium text-foreground'>
+                                    {skill.name}
+                                </span>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <div>
+            <h2 class='text-2xl font-bold mb-2 text-foreground'>Core Competencies</h2>
+            <div class='h-1 w-32 bg-chart-4 mb-6 rounded-full'></div>
+
+            <div class='flex gap-3 flex-wrap'>
+                {
+                    [
+                        'Problem Solving',
+                        'Decision Making',
+                        'Web Application Architecture',
+                        'Database Management',
+                        'AWS Data Engineering Basics',
+                        'Responsive Design',
+                    ].map((comp) => (
+                        <span class='inline-flex items-center rounded-lg bg-secondary px-3.5 py-1.5 text-sm font-medium text-foreground border border-border/60 shadow-xs'>
+                            {comp}
+                        </span>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Certifications & Workshops (Moved to the bottom) -->
+        <div>
+            <h2 class='text-2xl font-bold flex items-center gap-2 mb-2 text-foreground'>
+                <Award size={24} class='text-primary' /> Certifications &amp; Workshops
+            </h2>
+            <div class='h-1 w-44 bg-primary mb-6 rounded-full'></div>
+
+            <div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                {
+                    certifications.map((cert) => (
+                        <Card className='bg-secondary-background border border-slate-200 dark:border-slate-800 shadow'>
+                            <CardContent className='p-5 flex flex-col justify-between h-full gap-3'>
+                                <div>
+                                    <h3 class='text-base font-bold text-foreground'>
+                                        {cert.title}
+                                    </h3>
+                                    <p class='text-sm text-foreground/70 mt-1 font-medium'>
+                                        Issued by {cert.issuer}
+                                    </p>
+                                </div>
+                                <div class='flex items-center justify-between text-xs text-foreground/60 pt-2 border-t border-border/30'>
+                                    <span>Date Completed</span>
+                                    <span class='font-semibold text-primary'>{cert.date}</span>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

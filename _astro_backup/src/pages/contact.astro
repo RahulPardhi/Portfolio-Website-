@@ -1,0 +1,92 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { ContactForm } from '@/components/ContactForm'
+import SendEmail from '@lucide/astro/icons/mail'
+import PhoneCall from '@lucide/astro/icons/phone'
+import MapPin from '@lucide/astro/icons/map-pin'
+import MessageSquare from '@lucide/astro/icons/message-square'
+---
+
+<Layout
+    title='Contact'
+    description='Contact Rahul Pardhi — get in touch for web development opportunities, collaborations, or inquiries.'
+>
+    <div class='relative max-w-3xl mx-auto py-8 px-4 lg:px-0 w-full space-y-8'>
+        {/* Page Heading */}
+        <div>
+            <h2 class='text-2xl font-bold flex items-center gap-2 text-foreground'>
+                <MessageSquare size={24} class='text-primary' /> Get in Touch
+            </h2>
+            <div class='h-1 w-36 bg-primary mt-2 mb-4 rounded-full'></div>
+            <p class='text-sm text-foreground/80 leading-relaxed max-w-xl'>
+                Have a project in mind, a question, or an opportunity? Feel free to reach out using the form below or through direct contact.
+            </p>
+        </div>
+
+        {/* Quick Contact Cards */}
+        <div class='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+            {/* Email Card */}
+            <a
+                href='mailto:pardhirahul2004@gmail.com'
+                class='group block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-secondary-background shadow hover:shadow-md hover:border-emerald-500/50 transition-all'
+                title='Click to send email'
+            >
+                <div class='flex items-center gap-3'>
+                    <div class='p-2.5 rounded-lg bg-emerald-500/10 text-emerald-500 group-hover:scale-110 transition-transform'>
+                        <SendEmail class='h-5 w-5' />
+                    </div>
+                    <div class='min-w-0'>
+                        <p class='text-xs font-semibold uppercase tracking-wider text-foreground/60'>Email Me</p>
+                        <p class='text-xs font-medium text-foreground truncate mt-0.5 group-hover:text-primary transition-colors'>pardhirahul2004@gmail.com</p>
+                    </div>
+                </div>
+            </a>
+
+            {/* Phone Card */}
+            <a
+                href='tel:+918788221424'
+                class='group block p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-secondary-background shadow hover:shadow-md hover:border-sky-500/50 transition-all'
+                title='Click to call'
+            >
+                <div class='flex items-center gap-3'>
+                    <div class='p-2.5 rounded-lg bg-sky-500/10 text-sky-500 group-hover:scale-110 transition-transform'>
+                        <PhoneCall class='h-5 w-5' />
+                    </div>
+                    <div class='min-w-0'>
+                        <p class='text-xs font-semibold uppercase tracking-wider text-foreground/60'>Call Me</p>
+                        <p class='text-xs font-medium text-foreground truncate mt-0.5 group-hover:text-primary transition-colors'>+91 8788221424</p>
+                    </div>
+                </div>
+            </a>
+
+            {/* Location Card */}
+            <div class='p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-secondary-background shadow'>
+                <div class='flex items-center gap-3'>
+                    <div class='p-2.5 rounded-lg bg-amber-500/10 text-amber-500'>
+                        <MapPin class='h-5 w-5' />
+                    </div>
+                    <div class='min-w-0'>
+                        <p class='text-xs font-semibold uppercase tracking-wider text-foreground/60'>Location</p>
+                        <p class='text-xs font-medium text-foreground truncate mt-0.5'>Gondia, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* Form Card */}
+        <Card className='bg-secondary-background border border-slate-200 dark:border-slate-800 shadow'>
+            <CardHeader className='pb-2'>
+                <CardTitle className='text-xl font-bold text-foreground'>
+                    Send a Message
+                </CardTitle>
+                <p class='text-sm text-foreground/70'>
+                    Fill out the form below and I'll get back to you as soon as possible.
+                </p>
+            </CardHeader>
+            <CardContent className='pt-2'>
+                <ContactForm client:load />
+            </CardContent>
+        </Card>
+    </div>
+</Layout>

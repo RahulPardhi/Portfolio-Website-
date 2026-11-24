@@ -1,0 +1,3 @@
+- Completed a **10-week AWS Data Engineering internship** under AICTE NEAT and AWS Academy, applying cloud computing and data pipeline fundamentals through hands-on, industry-oriented assignments.
+- Built and tested **ETL pipelines on AWS** by automating data extraction, transformation, and load steps across structured datasets.
+- Queried, processed, and validated data consistency using SQL and cloud database principles.
