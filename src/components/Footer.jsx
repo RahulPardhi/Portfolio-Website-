@@ -37,7 +37,7 @@ export function Footer() {
           <Github className="h-4 w-4" />
         </a>
         <a
-          href="/Rahul_Pardhi_Resume%20(1).pdf"
+          href="/Rahul-Pardhi-Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           title="Resume"
@@ -76,3 +76,4 @@ export function Footer() {
     </footer>
   );
 }
+

@@ -18,7 +18,7 @@ export function SocialsBox() {
 
       {/* Resume */}
       <a
-        href="/Rahul_Pardhi_Resume%20(1).pdf"
+        href="/Rahul-Pardhi-Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Resume"
@@ -62,3 +62,4 @@ export function SocialsBox() {
     </div>
   );
 }
+
