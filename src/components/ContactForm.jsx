@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
+const apiBaseUrl = (
+  import.meta.env.PUBLIC_API_BASE_URL ||
+  (import.meta.env.DEV ? 'http://localhost:3001' : '')
+).replace(/\/$/, '');
+
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,7 +50,11 @@ export function ContactForm() {
     setErrorMessage('');
 
     try {
-      const res = await fetch('/api/contact', {
+      if (!apiBaseUrl) {
+        throw new Error('The contact service is not configured. Please email directly instead.');
+      }
+
+      const res = await fetch(`${apiBaseUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,8 +82,9 @@ export function ContactForm() {
       console.error('Contact submission error:', err);
       setStatus('error');
       setErrorMessage(
-        err?.message ||
-          'A network error occurred while sending your message. Please try again.'
+        err instanceof TypeError
+          ? 'Could not reach the contact service. Please try again later or email directly.'
+          : err?.message || 'A network error occurred while sending your message. Please try again.'
       );
     }
   };

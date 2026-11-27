@@ -7,23 +7,8 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    {
-      name: 'api-contact-handler',
-      configureServer(server) {
-        server.middlewares.use('/api/contact', async (req, res) => {
-          try {
-            const { handleContactRequest } = await import('./server/contactHandler.js');
-            await handleContactRequest(req, res);
-          } catch (err) {
-            console.error('API Error:', err);
-            res.statusCode = 500;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
-          }
-        });
-      },
-    },
   ],
+  envPrefix: ['VITE_', 'PUBLIC_'],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
